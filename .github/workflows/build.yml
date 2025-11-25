@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v4 # Checkout your repository
 
     - name: Build APK
-      uses: digreatbrian/buildozer-action@v
+      uses: digreatbrian/buildozer-action@v2
       with:
         python-version: 3.9 # Specify your Python version
         buildozer-cmd: buildozer -v android debug # Buildozer command
