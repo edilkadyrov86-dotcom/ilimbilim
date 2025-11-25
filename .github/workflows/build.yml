@@ -1,24 +1,24 @@
- name: ilimbilim
+name: ilimbilim
 
-    on:
-      push:
-        branches: [ main ] # Trigger on pushes to the main branch
+on:
+  push:
+    branches: [ main ] # Trigger on pushes to the main branch
 
-    jobs:
-      build:
-        runs-on: ubuntu-latest # Use an Ubuntu runner
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use an Ubuntu runner
 
-        steps:
-        - uses: actions/checkout@v4 # Checkout your repository
+    steps:
+    - uses: actions/checkout@v4 # Checkout your repository
 
-        - name: Build APK
-          uses: digreatbrian/buildozer-action@v2
-          with:
-            python-version: 3.9 # Specify your Python version
-            buildozer-cmd: buildozer -v android debug # Buildozer command
+    - name: Build APK
+      uses: digreatbrian/buildozer-action@v
+      with:
+        python-version: 3.9 # Specify your Python version
+        buildozer-cmd: buildozer -v android debug # Buildozer command
 
-        - name: Upload artifacts
-          uses: actions/upload-artifact@v4
-          with:
-            name: kivy-apk
-            path: ./bin/*.apk # Path to your generated APK
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: kivy-apk
+        path: ./bin/*.apk # Path to your generated APK
